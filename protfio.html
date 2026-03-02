@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    :root {
+      --primary: #4CAF50;
+      --dark: #222;
+      --light: #f4f4f4;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-image: url('./background.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      color: var(--dark);
+    }
+
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: var(--dark);
+      color: white;
+    }
+
+    header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    header nav a {
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    header nav a:hover {
+      color: var(--primary);
+    }
+
+    #hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to right, #4CAF50, #2E8B57);
+      color: white;
+      text-align: center;
+    }
+
+    .btn {
+      background: white;
+      color: var(--primary);
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    section {
+      padding: 4rem 2rem;
+    }
+
+    #projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+      color: white;
+    }
+
+    .card:nth-child(1) {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .card:nth-child(2) {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    .card:nth-child(3) {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+
+    .card:nth-child(4) {
+      background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+    }
+
+    .card a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .skill-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .skill-card:nth-child(1) {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .skill-card:nth-child(2) {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    .skill-card:nth-child(3) {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+
+    .skill-card:nth-child(4) {
+      background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+    }
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: var(--dark);
+      color: white;
+    }
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-in-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .profile-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 4px solid white;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header nav {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>My Portfolio</h1>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <img src="C:\Users\TOSHIBA\Downloads\profile.jpeg" alt="Profile Photo" class="profile-photo">
+    <h2>Hello, I'm RAJESH P G</h2>
+    <p>Frontend Developer | Designer | Creator</p>
+    <a href="#projects" class="btn">View My Work</a>
+  </section>
+
+  <section id="about" class="fade-in">
+    <h2>About Me</h2>
+    <p>I am a passionate developer with expertise in building modern, responsive websites and applications. I love creating elegant solutions to complex problems and am committed to continuous learning. My creative approach and attention to detail ensure high-quality deliverables that exceed expectations. I thrive in collaborative environments and bring enthusiasm and dedication to every project I undertake.</p>
+  </section>
+
+  <section id="skills" class="fade-in">
+    <h2>Skills</h2>
+    <div class="skills-container">
+      <div class="skill-card">
+        <h3>HTML</h3>
+        <p>Semantic markup and accessibility</p>
+      </div>
+      <div class="skill-card">
+        <h3>CSS</h3>
+        <p>Responsive design and animations</p>
+      </div>
+      <div class="skill-card">
+        <h3>JavaScript</h3>
+        <p>Interactive features and DOM manipulation</p>
+      </div>
+      <div class="skill-card">
+        <h3>Others</h3>
+        <p>Git, GitHub, and web development tools</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="fade-in">
+    <h2>Projects</h2>
+    <div class="projects-container">
+      <div class="card">
+        <a href="https://rajesh-yadav-01.github.io/protfoilo/"><h3>Basic Protfolio</h3></a>
+        <p>a simple portfolio website built with HTML and CSS to showcase my projects and skills.</p>
+      </div>
+      <div class="card">
+        <a href="https://rajesh-yadav-01.github.io/tuduproject/"><h3>Basic Tudu</h3></a>
+        <p>A simple to-do list application built with HTML, CSS, and slight js.</p>
+      </div>
+      <div class="card">
+       <a href="https://rajesh-yadav-01.github.io/bmi/"><h3>BMI Calculator</h3></a>
+        <p>A simple tool to calculate Body Mass Index (BMI).</p>
+      </div>
+      <div class="card">
+        <h3><a href="https://rajesh-yadav-01.github.io/heritagebill/">Heritage Bill Calculator</a></h3>
+        <p>A calculator tool for managing and calculating heritage bills efficiently.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="fade-in">
+    <h2>Contact Me</h2>
+    <div style="text-align: center; font-size: 1.1rem;">
+      <p><strong>Email:</strong> <a href="rajesh18110.pg@gmail.com" style="color: var(--primary); text-decoration: none;">rajesh181106.pg@gmail.com</a></p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/Rajesh-yadav-01" target="_blank" style="color: var(--primary); text-decoration: none;">github.com</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/rajesh-pg-68860534a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="color: var(--primary); text-decoration: none;">linkedin.com</a></p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 My Portfolio
+  </footer>
+
+  <script>
+    // Fade-in effect on scroll
+    const elements = document.querySelectorAll('.fade-in');
+    window.addEventListener('scroll', () => {
+      elements.forEach(el => {
+        const position = el.getBoundingClientRect().top;
+        if (position < window.innerHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
